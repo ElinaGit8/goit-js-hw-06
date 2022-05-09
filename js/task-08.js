@@ -1,17 +1,41 @@
-const form = document.querySelector('.login-form');
+// const form = document.querySelector('.login-form');
 
-form.addEventListener('submit', onSubmitButton);
+// form.addEventListener('submit', onSubmitButton);
 
-function onSubmitButton(event) {
-    event.preventDefault();
-  const {
-    elements: { email, password }
-  } = event.currentTarget;
+// function onSubmitButton(event) {
+//     event.preventDefault();
+//   const {
+//     elements: { email, password }
+//   } = event.currentTarget;
 
-  if (email.value === "" || password.value === "") {
-    return console.log("Please fill in all the fields!");
-  }
+//   if (email.value === "" || password.value === "") {
+//     return console.log("Please fill in all the fields!");
+//   }
 
-  console.log(`Login: ${email.value}, Password: ${password.value}`);
-  event.currentTarget.reset();
+//   console.log(`Login: ${email.value}, Password: ${password.value}`);
+//   event.currentTarget.reset();
+// }
+
+
+const form = document.querySelector('.login-form')
+
+form.addEventListener('submit',onSubmitForm)
+
+function onSubmitForm(event) {
+   event.preventDefault();
+    const formEl = event.currentTarget.elements;
+    const email = formEl.email.value;
+    const password = formEl.password.value;
+     const dataUser = {
+        email,
+        password,
+    }
+      
+     if (email === '' || password === '') {
+          alert('Все поля должны быть заполнены')
+     } else {
+     console.log(dataUser)
+     form.reset();
+     }
+   
 }
